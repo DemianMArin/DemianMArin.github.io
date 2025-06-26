@@ -1,7 +1,7 @@
 site:
   name: DemianMarin
   site: 'https://demianmarin.github.io/demian-portfolio/'
-  base: '/'
+  base: '/demian-portfolio'
   trailingSlash: false
 
   googleSiteVerificationId: orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M
