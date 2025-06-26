@@ -2,6 +2,7 @@ site:
   name: DemianMarin
   site: 'https://demianmarin.github.io/demian-portfolio/'
   base: '/demian-portfolio'
+  # base: '/'
   trailingSlash: false
 
   googleSiteVerificationId: orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M
@@ -10,8 +11,8 @@ site:
 metadata:
   title:
     default: DemianMarin
-    template: '%s — AstroWind'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+    template: '%s' 
+  description: "\U0001F680 My porftolio"
   robots:
     index: true
     follow: true
