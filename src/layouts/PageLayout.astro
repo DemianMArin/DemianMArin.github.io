@@ -15,20 +15,20 @@ const { metadata } = Astro.props;
 
 <Layout metadata={metadata}>
   <slot name="header">
-  <Header 
-        {...headerData}
-        actions={[
-          {
-            text: '',
-            href: 'https://github.com/DemianMArin',
-            target: '_blank',
-            icon: 'tabler:brand-github',
-            variant: 'primary'
-          }
-        ]}
-        isSticky 
-        showToggleTheme 
-  />
+    <Header
+      {...headerData}
+      actions={[
+        {
+          text: '',
+          href: 'https://github.com/DemianMArin',
+          target: '_blank',
+          icon: 'tabler:brand-github',
+          variant: 'tertiary',
+        },
+      ]}
+      isSticky
+      showToggleTheme
+    />
   </slot>
   <main>
     <slot />

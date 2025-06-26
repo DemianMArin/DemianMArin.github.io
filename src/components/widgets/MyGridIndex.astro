@@ -38,34 +38,40 @@ const {
 ---
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-4xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
-  {showHeader && (title || subtitle || tagline) && (
-    <Headline title={title} subtitle={subtitle} tagline={tagline} classes={typeof classes?.headline === 'object' ? classes.headline : {}} />
-  )}
-  
-  {items && items.length > 0 && (
-    <div class="columns-1 sm:columns-2 gap-8 space-y-8">
-      {items.map(({ image, href, title: itemTitle }) => (
-        <a 
-          href={href}
-          class="block group hover:scale-105 transition-transform duration-300 break-inside-avoid mb-8"
-        >
-          <div class="overflow-hidden">
-            <Image
-              class="w-full h-auto object-cover group-hover:opacity-90 transition-opacity duration-300"
-              widths={[400, 768]}
-              sizes="(max-width: 768px) 100vw, 50vw"
-              {...image}
-            />
-            {showTitles && itemTitle && (
-              <div class="mt-4 text-center">
-                <h3 class="text-lg font-semibold text-default group-hover:text-primary transition-colors duration-300">
-                  {itemTitle}
-                </h3>
-              </div>
-            )}
-          </div>
-        </a>
-      ))}
-    </div>
-  )}
+  {
+    showHeader && (title || subtitle || tagline) && (
+      <Headline
+        title={title}
+        subtitle={subtitle}
+        tagline={tagline}
+        classes={typeof classes?.headline === 'object' ? classes.headline : {}}
+      />
+    )
+  }
+
+  {
+    items && items.length > 0 && (
+      <div class="columns-1 sm:columns-2 gap-8 space-y-8">
+        {items.map(({ image, href, title: itemTitle }) => (
+          <a href={href} class="block group hover:scale-105 transition-transform duration-300 break-inside-avoid mb-8">
+            <div class="overflow-hidden">
+              <Image
+                class="w-full h-auto object-cover group-hover:opacity-90 transition-opacity duration-300"
+                widths={[400, 768]}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                {...image}
+              />
+              {showTitles && itemTitle && (
+                <div class="mt-4 text-center">
+                  <h3 class="text-lg font-semibold text-default group-hover:text-primary transition-colors duration-300">
+                    {itemTitle}
+                  </h3>
+                </div>
+              )}
+            </div>
+          </a>
+        ))}
+      </div>
+    )
+  }
 </WidgetWrapper>
