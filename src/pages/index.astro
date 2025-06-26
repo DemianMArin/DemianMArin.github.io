@@ -1,0 +1,72 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import MyGridIndex from '~/components/widgets/MyGridIndex.astro';
+
+const metadata = {
+  title: 'Hello',
+  ignoreTitleTemplate: false,
+};
+
+const portfolioItems = [
+  {
+  image: { src: '~/assets/images/grid_portfolio/high_pass_filter.png', alt: 'High pass filter project' },
+    href: '/high-pass-filter',
+    title: 'High Pass Filter'
+  },
+  {
+    image: { src: '~/assets/images/grid_portfolio/stm_autonomous_vehicle.png', alt: 'STM autonomous vehicle project' },
+    href: '/stm-autonomous-vehicle',
+    title: 'STM Autonomous Vehicle'
+  },
+  {
+    image: { src: '~/assets/images/grid_portfolio/stm_line_follower.png', alt: 'STM line follower project' },
+    href: '/stm-line-follower',
+    title: 'STM Line Follower'
+  },
+  {
+    image: { src: '~/assets/images/grid_portfolio/uuv_setup.png', alt: 'Underwater vehicle setup project' },
+    href: '/portfolio_pages/uuv',
+    title: 'UUV Setup'
+  },
+  {
+    image: { src: '~/assets/images/grid_portfolio/uuv_pool.gif', alt: 'Underwater vehicle pool project' },
+    href: '/portfolio_pages/uuv',
+    title: 'UUV Pool'
+  },
+  {
+    image: { src: '~/assets/images/grid_portfolio/water_pump_setup.png', alt: 'Water pump setup project' },
+    href: '/water-pump-setup',
+    title: 'Water Pump Setup'
+  },
+  {
+    image: { src: '~/assets/images/grid_portfolio/xarm_setup.png', alt: 'xArm robotic arm setup project' },
+    href: '/xarm-setup',
+    title: 'xArm Setup'
+  }
+];
+---
+
+<Layout metadata={metadata}>
+  <!-- <Hero -->
+  <!--   actions={[ -->
+  <!--     { -->
+  <!--       variant: 'primary', -->
+  <!--       text: 'Get template', -->
+  <!--       href: 'https://github.com/onwidget/astrowind', -->
+  <!--       target: '_blank', -->
+  <!--       icon: 'tabler:download', -->
+  <!--     }, -->
+  <!--     { text: 'Learn more', href: '#features' }, -->
+  <!--   ]} -->
+  <!--   image={{ src: '~/assets/images/hero-image.png', alt: 'AstroWind Hero Image' }} -->
+  <!-- /> -->
+
+  <MyGridIndex
+    title="My Portfolio"
+    subtitle="A collection of my engineering projects"
+    items={portfolioItems}
+    showHeader={false}
+    showTitles={false}
+  <MyGridIndex/>
+</Layout>
