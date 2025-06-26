@@ -11,7 +11,7 @@ site:
 metadata:
   title:
     default: DemianMarin
-    template: '%s' 
+    template: '%s'
   description: "\U0001F680 My porftolio"
   robots:
     index: true
