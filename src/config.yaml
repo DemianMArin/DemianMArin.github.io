@@ -1,6 +1,6 @@
 site:
   name: DemianMarin
-  site: 'https://astrowind.vercel.app'
+  site: 'https://demianmarin.github.io/demian-portfolio/'
   base: '/'
   trailingSlash: false
 
