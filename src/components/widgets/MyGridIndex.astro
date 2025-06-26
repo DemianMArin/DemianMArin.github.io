@@ -5,7 +5,7 @@ import Image from '~/components/common/Image.astro';
 import type { ImageMetadata } from 'astro';
 
 interface GridItem {
-  image: ImageMetadata | Record<string, any>;
+  image: ImageMetadata | Record<string, unknown>;
   href: string;
   title?: string;
 }
