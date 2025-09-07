@@ -1,49 +1,264 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 
-import Hero from '~/components/widgets/Hero.astro';
-import Content from '~/components/widgets/Content.astro';
-
 const metadata = {
-  title: 'About me',
+  title: 'CV - Demian Marin',
   ignoreTitleTemplate: false,
 };
+
+// CSS Variables for easy size control
+const sectionTitleSize = 'text-base';      // Main section titles (About, Education, etc.)
+const jobTitleSize = 'text-sm';        // Job/project titles (h3)  
+const institutionSize = 'text-sm';      // Institution/company names (NYU, UIC, etc.)
+const bodyTextSize = 'text-xs';          // About paragraph and bullet points
+const widthContent = 'max-w-3xl';
+
+//text-xs = extra small
+//text-sm = small
+//text-base = normal size
+//text-lg = large
+//text-xl = extra large
+//text-2xl = 2x large
+//text-3xl = 3x large
+
 ---
 
 <Layout metadata={metadata}>
-  <Content
-    title="Use cases"
-    isReversed
-    items={[
-      {
-        title: 'Description:',
-        description:
-          'Are you a startup with big dreams? AstroWind propels your success. Our template forges a seamless online presence, attracting investors and customers from day one. Astro 5.0 and Tailwind CSS ensure striking, responsive sites, leaving lasting impressions. Countless startups leverage AstroWind to kickstart their journey and resonate with audiences.',
-      },
-      {
-        title: 'Benefits:',
-        description: `Allow startups to quickly create professional websites without investing extensive time and resources. <br /> Make a memorable first impression with visually appealing design elements that highlight your startup's unique value proposition. <br /> Ensures your website looks stunning and works well on all devices. <br /> Engage potential investors and customers with engaging content, clear messaging, and intuitive navigation.`,
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1620558138198-cfb9b4f3c294?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1671&q=80',
-      alt: 'Startup Image',
-    }}
-  >
-    <Content />
+  <section class={`px-4 py-16 sm:px-6 mx-auto lg:px-8 lg:py-20 ${widthContent}`}>
+    <div class="mx-auto">
 
-    <Hero
-      actions={[
-        {
-          variant: 'primary',
-          text: 'Get template',
-          href: 'https://github.com/onwidget/astrowind',
-          target: '_blank',
-          icon: 'tabler:download',
-        },
-        { text: 'Learn more', href: '#features' },
-      ]}
-      image={{ src: '~/assets/images/hero-image.png', alt: 'AstroWind Hero Image' }}
-    />
-  </Content>
+      <div class="space-y-12">
+        <!-- About Section -->
+        <section>
+          <h2 class={`${sectionTitleSize} font-bold text-gray-800 dark:text-white mb-6 border-b-2 border-black dark:border-white pb-2 uppercase tracking-wide`}>About</h2>
+          <p class={`text-gray-700 dark:text-gray-300 leading-relaxed ${bodyTextSize}`}>
+            I'm enthusiastic about the future. I favor discipline over motivation. I love engineering and the teamwork it involves. I'm interested in embedded systems, computer architecture, SoC, Control, ML Ops and how these disciplines and technologies are being applied at an industry level.
+          </p>
+        </section>
+
+        <!-- Education -->
+        <section>
+          <h2 class={`${sectionTitleSize} font-bold text-gray-800 dark:text-white mb-6 border-b-2 border-black dark:border-white pb-2 uppercase tracking-wide`}>Education</h2>
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="w-2 h-2 bg-black dark:bg-white rounded-full mt-2 flex-shrink-0"></div>
+              <div>
+                <h3 class={`${jobTitleSize} font-semibold text-gray-800 dark:text-white`}>M.S. in Electrical Engineering</h3>
+                <p class={`text-gray-500 dark:text-gray-300 font-medium ${institutionSize}`}>New York University, New York, USA</p>
+                <p class={`text-gray-400 dark:text-gray-400 ${bodyTextSize}`}>Expected Graduation: May 2027</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-2 h-2 bg-black dark:bg-white rounded-full mt-2 flex-shrink-0"></div>
+              <div>
+                <h3 class={`${jobTitleSize} font-semibold text-gray-800 dark:text-white`}>B.Sc. in Robotics and Digital Systems</h3>
+                <p class={`text-gray-500 dark:text-gray-300 font-medium ${institutionSize}`}>Tec de Monterrey, Monterrey, Mexico</p>
+                <p class={`text-gray-400 dark:text-gray-400 ${bodyTextSize}`}>GPA: 91/100 | 2021 - 2025</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Work and Research Experience -->
+        <section>
+          <h2 class={`${sectionTitleSize} font-bold text-gray-800 dark:text-white mb-6 border-b-2 border-black dark:border-white pb-2 uppercase tracking-wide`}>Work and Research Experience</h2>
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="w-2 h-2 bg-black dark:bg-white rounded-full mt-2 flex-shrink-0"></div>
+              <div>
+                <h3 class={`${jobTitleSize} font-semibold text-gray-800 dark:text-white`}>Research Internship – Human-AI Interaction in Education</h3>
+                <p class={`text-gray-500 dark:text-gray-300 font-medium italic ${institutionSize}`}>University of Illinois at Chicago (UIC) | Fall 2024 | Chicago, U.S.</p>
+                <ul class={`mt-3 space-y-2 text-gray-700 dark:text-gray-300 ${bodyTextSize}`}>
+                  <li class="flex items-start gap-2">
+                    <span class="w-1.5 h-1.5 bg-black dark:bg-white rounded-full mt-2 flex-shrink-0"></span>
+                    Developed a Python API with FastAPI to interface with AI models hosted on remote GPUs and external services via VPN.
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="w-1.5 h-1.5 bg-black dark:bg-white rounded-full mt-2 flex-shrink-0"></span>
+                    Designed and implemented an end-to-end feedback pipeline connecting user facial expressions to a virtual teacher's emotional response.
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="w-1.5 h-1.5 bg-black dark:bg-white rounded-full mt-2 flex-shrink-0"></span>
+                    Built the user interface in Streamlit to evaluate real-time interactions between students and the virtual teacher.
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="w-1.5 h-1.5 bg-black dark:bg-white rounded-full mt-2 flex-shrink-0"></span>
+                    Replicated benchmarking experiments with PyTorch from peer labs to validate emotion detection models.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Academic Projects -->
+        <section>
+          <h2 class={`${sectionTitleSize} font-bold text-gray-800 dark:text-white mb-6 border-b-2 border-black dark:border-white pb-2 uppercase tracking-wide`}>Academic Projects</h2>
+          <div class="space-y-8">
+            <div class="flex items-start gap-4">
+              <div class="w-2 h-2 bg-black dark:bg-white rounded-full mt-2 flex-shrink-0"></div>
+              <div>
+                <h3 class={`${jobTitleSize} font-semibold text-gray-800 dark:text-white`}>Lidar-Based Autonomous Robot with ROS2</h3>
+                <p class={`text-gray-600 dark:text-gray-300 font-medium italic ${institutionSize}`}>Manchester Robotics | Spring 2025 | Monterrey, Mexico</p>
+                <ul class={`mt-3 space-y-2 text-gray-700 dark:text-gray-300 ${bodyTextSize}`}>
+                  <li class="flex items-start gap-2">
+                    <span class="w-1.5 h-1.5 bg-black dark:bg-white rounded-full mt-2 flex-shrink-0"></span>
+                    Built HMI for visualizing real-time map generation using FPGA and LCD screen.
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="w-1.5 h-1.5 bg-black dark:bg-white rounded-full mt-2 flex-shrink-0"></span>
+                    Implemented voice command recognition using HMM trained on 5 different speakers, achieving 80% accuracy.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-2 h-2 bg-black dark:bg-white rounded-full mt-2 flex-shrink-0"></div>
+              <div>
+                <h3 class={`${jobTitleSize} font-semibold text-gray-800 dark:text-white`}>Vision-Based Autonomous Robot with ROS2</h3>
+                <p class={`text-gray-600 dark:text-gray-300 font-medium italic ${institutionSize}`}>Manchester Robotics | Spring 2024 | Monterrey, Mexico</p>
+                <ul class={`mt-3 space-y-2 text-gray-700 dark:text-gray-300 ${bodyTextSize}`}>
+                  <li class="flex items-start gap-2">
+                    <span class="w-1.5 h-1.5 bg-black dark:bg-white rounded-full mt-2 flex-shrink-0"></span>
+                    Implemented differential drive kinematics and LOS (Line of Sight) control in ROS2 using C++ on a Jetson Nano.
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="w-1.5 h-1.5 bg-black dark:bg-white rounded-full mt-2 flex-shrink-0"></span>
+                    Trained and deployed a YOLO model on a custom dataset to recognize traffic signs.
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="w-1.5 h-1.5 bg-black dark:bg-white rounded-full mt-2 flex-shrink-0"></span>
+                    Processed camera input using OpenCV to detect a black line for basic path following.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-2 h-2 bg-black dark:bg-white rounded-full mt-2 flex-shrink-0"></div>
+              <div>
+                <h3 class={`${jobTitleSize} font-semibold text-gray-800 dark:text-white`}>Embedded Control System for User-Guided Vehicle</h3>
+                <p class={`text-gray-600 dark:text-gray-300 font-medium italic ${institutionSize}`}>John Deere | Fall 2023 | Monterrey, Mexico</p>
+                <ul class={`mt-3 space-y-2 text-gray-700 dark:text-gray-300 ${bodyTextSize}`}>
+                  <li class="flex items-start gap-2">
+                    <span class="w-1.5 h-1.5 bg-black dark:bg-white rounded-full mt-2 flex-shrink-0"></span>
+                    Implemented Stanley Controller and PID in C for autonomous path following based on user-defined waypoints received via radio.
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="w-1.5 h-1.5 bg-black dark:bg-white rounded-full mt-2 flex-shrink-0"></span>
+                    Developed firmware in C to interface with encoders, PWM motor drivers, radio communication, and IMU sensors.
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="w-1.5 h-1.5 bg-black dark:bg-white rounded-full mt-2 flex-shrink-0"></span>
+                    Integrated a Kalman filter to fuse encoder data with camera-based position estimates for improved localization.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-2 h-2 bg-black dark:bg-white rounded-full mt-2 flex-shrink-0"></div>
+              <div>
+                <h3 class={`${jobTitleSize} font-semibold text-gray-800 dark:text-white`}>Water Pump Control System with STM32 microcontroller</h3>
+                <p class={`text-gray-600 dark:text-gray-300 font-medium italic ${institutionSize}`}>Robertshaw | Spring 2023 | Monterrey, Mexico</p>
+                <ul class={`mt-3 space-y-2 text-gray-700 dark:text-gray-300 ${bodyTextSize}`}>
+                  <li class="flex items-start gap-2">
+                    <span class="w-1.5 h-1.5 bg-black dark:bg-white rounded-full mt-2 flex-shrink-0"></span>
+                    Integrated pressure and flow sensors with STM32 microcontroller using HAL libraries and C.
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="w-1.5 h-1.5 bg-black dark:bg-white rounded-full mt-2 flex-shrink-0"></span>
+                    Designed a state machine for pump control and implemented real-time data acquisition using RTOS task scheduling.
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="w-1.5 h-1.5 bg-black dark:bg-white rounded-full mt-2 flex-shrink-0"></span>
+                    Built and tested sensor and valve circuitry based on datasheet analysis, using manual wiring and oscilloscopes for signal validation.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Robotics Group -->
+        <section>
+          <h2 class={`${sectionTitleSize} font-bold text-gray-800 dark:text-white mb-6 border-b-2 border-black dark:border-white pb-2 uppercase tracking-wide`}>Robotics Group</h2>
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="w-2 h-2 bg-black dark:bg-white rounded-full mt-2 flex-shrink-0"></div>
+              <div>
+                <h3 class={`${jobTitleSize} font-semibold text-gray-800 dark:text-white`}>Vanttec</h3>
+                <p class={`text-gray-600 dark:text-gray-300 font-medium italic ${institutionSize}`}>Fall 2023 - Spring 2025</p>
+                <ul class={`mt-3 space-y-2 text-gray-700 dark:text-gray-300 ${bodyTextSize}`}>
+                  <li class="flex items-start gap-2">
+                    <span class="w-1.5 h-1.5 bg-black dark:bg-white rounded-full mt-2 flex-shrink-0"></span>
+                    Integrated existing C++ CAN libraries into the UUV's ROS2 C++ software stack for teleoperation.
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="w-1.5 h-1.5 bg-black dark:bg-white rounded-full mt-2 flex-shrink-0"></span>
+                    Implemented UUV dynamics to convert user input into force commands across 6 degrees of freedom.
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="w-1.5 h-1.5 bg-black dark:bg-white rounded-full mt-2 flex-shrink-0"></span>
+                    Reorganized firmware and ROS2 nodes to enable user control of the UUV via remote interface.
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="w-1.5 h-1.5 bg-black dark:bg-white rounded-full mt-2 flex-shrink-0"></span>
+                    Assembled hardware components, including soldering, power/data cable wiring, and connector configuration.
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="w-1.5 h-1.5 bg-black dark:bg-white rounded-full mt-2 flex-shrink-0"></span>
+                    Tested and validated underwater communication between UUV and surface operator.
+                  </li>
+                </ul>
+                <div class="mt-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                  <p class={`text-gray-700 dark:text-gray-300 font-medium ${bodyTextSize}`}>
+                    <span class="font-semibold">RoboBoat 2025 Sarasota, Florida:</span> Participated as part of the USV team; contributed to electronics integration and testing.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Skills -->
+        <section>
+          <h2 class={`${sectionTitleSize} font-bold text-gray-800 dark:text-white mb-6 border-b-2 border-black dark:border-white pb-2 uppercase tracking-wide`}>Skills</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="flex items-start gap-4">
+              <div class="w-2 h-2 bg-black dark:bg-white rounded-full mt-2 flex-shrink-0"></div>
+              <div>
+                <h4 class={`font-semibold ${jobTitleSize} text-gray-800 dark:text-white mb-2`}>Software</h4>
+                <p class={`text-gray-700 dark:text-gray-300 ${institutionSize}`}>Docker, LTSpice, ROS2, KiCAD</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-2 h-2 bg-black dark:bg-white rounded-full mt-2 flex-shrink-0"></div>
+              <div>
+                <h4 class={`font-semibold ${jobTitleSize} text-gray-800 dark:text-white mb-2`}>Programming Languages</h4>
+                <p class={`text-gray-700 dark:text-gray-300 ${institutionSize}`}>C, C++, Python, Matlab, VHDL</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-2 h-2 bg-black dark:bg-white rounded-full mt-2 flex-shrink-0"></div>
+              <div>
+                <h4 class={`font-semibold ${jobTitleSize} text-gray-800 dark:text-white mb-2`}>Microcontrollers</h4>
+                <p class={`text-gray-700 dark:text-gray-300 ${institutionSize}`}>STM32 boards</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-2 h-2 bg-black dark:bg-white rounded-full mt-2 flex-shrink-0"></div>
+              <div>
+                <h4 class={`font-semibold ${jobTitleSize} text-gray-800 dark:text-white mb-2`}>Languages</h4>
+                <p class={`text-gray-700 dark:text-gray-300 ${institutionSize}`}>Native Spanish, Fluent English (TOEFL iBT), Beginner French</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      
+    </div>
+  </section>
 </Layout>
