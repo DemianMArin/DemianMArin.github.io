@@ -2,6 +2,7 @@
 import Layout from '~/layouts/PageLayout.astro';
 import { getPermalink } from '~/utils/permalinks';
 import MyGridIndex from '~/components/widgets/MyGridIndex.astro';
+import uuvPoolVideo from '~/assets/images/grid_portfolio/uuv_pool.mp4';
 
 const metadata = {
   title: "Demian's Portfolio",
@@ -30,7 +31,8 @@ const portfolioItems = [
     title: 'UUV Setup',
   },
   {
-    image: { src: '~/assets/images/grid_portfolio/uuv_pool.gif', alt: 'Underwater vehicle project' },
+    // image: { src: '~/assets/images/grid_portfolio/uuv_pool.png', alt: 'Underwater vehicle project' },
+    video: { src: uuvPoolVideo },
     href: getPermalink('/portfolio_pages/uuv'),
     title: 'UUV Pool',
   },
