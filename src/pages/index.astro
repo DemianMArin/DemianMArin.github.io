@@ -2,7 +2,17 @@
 import Layout from '~/layouts/PageLayout.astro';
 import { getPermalink } from '~/utils/permalinks';
 import MyGridIndex from '~/components/widgets/MyGridIndex.astro';
+
 import uuvPoolVideo from '~/assets/images/grid_portfolio/uuv_pool.mp4';
+import xarmVideo from '~/assets/images/grid_portfolio/xarm_following_marker.mp4';
+import stmAutonomous from '~/assets/images/grid_portfolio/stm_autonomous_vehicle.mp4';
+import fpgaGame from '~/assets/images/grid_portfolio/game_FPGA.mp4';
+import passiveFilter from '~/assets/images/grid_portfolio/passive_filter.mp4';
+import uuvAboveWaterVideo from '~/assets/images/grid_portfolio/above_water_testing.mp4';
+import stmPIDVideo from '~/assets/images/grid_portfolio/stm_pid_car.mp4';
+import hmiVideo from '~/assets/images/grid_portfolio/hmi.mp4';
+import teachingAIVideo from '~/assets/images/grid_portfolio/teaching_ai.mp4';
+import stmWaterPumpVideo from '~/assets/images/grid_portfolio/stm_water_pump.mp4';
 
 const metadata = {
   title: "Demian's Portfolio",
@@ -11,24 +21,42 @@ const metadata = {
 
 const portfolioItems = [
   {
-    image: { src: '~/assets/images/grid_portfolio/high_pass_filter.png', alt: 'High pass filter project' },
-    href: getPermalink('/high-pass-filter'),
-    title: 'High Pass Filter',
+    video: { src: hmiVideo },
+    href: getPermalink('/portfolio_pages/uuv'),
+    title: 'HMI - SLAM in LCD with FPGA',
   },
   {
-    image: { src: '~/assets/images/grid_portfolio/stm_autonomous_vehicle.png', alt: 'STM autonomous vehicle project' },
+    //image: { src: '~/assets/images/grid_portfolio/uuv_setup.png', alt: 'Underwater vehicle setup project' },
+    video: { src: uuvAboveWaterVideo },
+    href: getPermalink('/portfolio_pages/uuv'),
+    title: 'UUV Above Water Testing',
+  },
+  {
+    video: { src: fpgaGame },
+    href: getPermalink('/fpga_game'),
+    title: 'FPGA Game',
+  },
+  {
+    //image: { src: '~/assets/images/grid_portfolio/stm_autonomous_vehicle.png', alt: 'STM autonomous vehicle project' },
+    video: { src: stmAutonomous },
     href: getPermalink('/stm-autonomous-vehicle'),
     title: 'STM Autonomous Vehicle',
   },
   {
-    image: { src: '~/assets/images/grid_portfolio/stm_line_follower.png', alt: 'STM line follower project' },
+    //image: { src: '~/assets/images/grid_portfolio/stm_line_follower.png', alt: 'STM line follower project' },
+    video: { src: stmPIDVideo },
     href: getPermalink('/stm-line-follower'),
-    title: 'STM Line Follower',
+    title: 'STM PID Line Follower',
   },
   {
-    image: { src: '~/assets/images/grid_portfolio/uuv_setup.png', alt: 'Underwater vehicle setup project' },
-    href: getPermalink('/portfolio_pages/uuv'),
-    title: 'UUV Setup',
+    image: { src: '~/assets/images/grid_portfolio/math_problem_data_test.jpg', alt: 'Math problem' },
+    href: getPermalink('/xarm-setup'),
+    title: 'Math Problem',
+  },
+  {
+    video: { src: teachingAIVideo },
+    href: getPermalink('/portfolio_pages/teaching-ai'),
+    title: 'Teacher AI',
   },
   {
     // image: { src: '~/assets/images/grid_portfolio/uuv_pool.png', alt: 'Underwater vehicle project' },
@@ -37,12 +65,20 @@ const portfolioItems = [
     title: 'UUV Pool',
   },
   {
-    image: { src: '~/assets/images/grid_portfolio/water_pump_setup.png', alt: 'Water pump setup project' },
+    //image: { src: '~/assets/images/grid_portfolio/high_pass_filter.png', alt: 'High pass filter project' },
+    video: { src: passiveFilter },
+    href: getPermalink('/high-pass-filter'),
+    title: 'High Pass Filter',
+  },
+  {
+    //image: { src: '~/assets/images/grid_portfolio/water_pump_setup.png', alt: 'Water pump setup project' },
+    video: { src: stmWaterPumpVideo },
     href: getPermalink('/water-pump-setup'),
     title: 'Water Pump Setup',
   },
   {
-    image: { src: '~/assets/images/grid_portfolio/xarm_setup.png', alt: 'xArm robotic arm setup project' },
+    //image: { src: '~/assets/images/grid_portfolio/xarm_setup.png', alt: 'xArm robotic arm setup project' },
+    video: { src: xarmVideo },
     href: getPermalink('/xarm-setup'),
     title: 'xArm Setup',
   },

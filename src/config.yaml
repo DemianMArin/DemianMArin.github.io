@@ -1,7 +1,7 @@
 site:
   name: DemianMarin
-  site: 'https://demianmarin.github.io/demian-portfolio/'
-  base: '/demian-portfolio'
+  site: 'https://demianmarin.github.io/'
+  base: '/'
   # base: '/'
   trailingSlash: false
 

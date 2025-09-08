@@ -37,9 +37,19 @@ const {
   classes = {},
   bg,
 } = Astro.props;
+
+// Most impactful size controls - change these to adjust overall layout
+const containerMaxWidth = 'max-w-3xl'; // max-w-2xl, max-w-4xl, max-w-6xl, max-w-full
+const gridColumns = 'columns-1 sm:columns-2'; // columns-1, columns-1 sm:columns-2 lg:columns-3
+const itemWidth = 'w-full'; // w-full, w-3/4, w-1/2, w-2/3
 ---
 
-<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-4xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+<WidgetWrapper
+  id={id}
+  isDark={isDark}
+  containerClass={`${containerMaxWidth} mx-auto ${classes?.container ?? ''}`}
+  bg={bg}
+>
   {
     showHeader && (title || subtitle || tagline) && (
       <Headline
@@ -53,26 +63,25 @@ const {
 
   {
     items && items.length > 0 && (
-      <div class="columns-1 sm:columns-2 gap-8 space-y-8">
+      <div class={`${gridColumns} gap-8 space-y-8`}>
         {items.map(({ image, video, href, title: itemTitle }) => (
           <a href={href} class="block group hover:scale-105 transition-transform duration-300 break-inside-avoid mb-8">
             <div class="overflow-hidden">
               {video ? (
                 <video
-                  class="w-full h-auto object-cover group-hover:opacity-90 transition-opacity duration-300"
+                  class={`${itemWidth} h-auto object-cover group-hover:opacity-90 transition-opacity duration-300`}
                   autoplay
                   muted
                   loop
                   playsinline
-                  controls
                 >
                   <source src={video.src} type={video.type || 'video/mp4'} />
                   Your browser does not support the video tag.
                 </video>
               ) : image ? (
                 <Image
-                  class="w-full h-auto object-cover group-hover:opacity-90 transition-opacity duration-300"
-                  widths={[400, 768]}
+                  class={`${itemWidth} h-auto object-cover group-hover:opacity-90 transition-opacity duration-300`}
+                  widths={[300, 500]}
                   sizes="(max-width: 768px) 100vw, 50vw"
                   {...image}
                 />
