@@ -1,0 +1,105 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import { Image } from 'astro:assets';
+import { getEntry, render } from 'astro:content';
+
+// Get the MDX content using getEntry
+const mathContent = await getEntry('grid', 'mathproblem');
+if (!mathContent) {
+  throw new Error('Math problem content not found');
+}
+const { Content } = await render(mathContent);
+
+// Import images
+import dataTest1 from '~/assets/images/MathProblem/data-test-1.jpg';
+import dataTest2 from '~/assets/images/MathProblem/data-test-2.jpg';
+import checking from '~/assets/images/MathProblem/checking-if-2-contestants-5-problems.png';
+import countingProblems from '~/assets/images/MathProblem/counting-problems-in-trios.png';
+
+// Layout variables - easily configurable
+const containerWidth = 'max-w-3xl';
+const contentWidth = 'max-w-3xl';
+
+// Typography variables - easily configurable
+const proseSize = 'prose-sm'; // prose-sm, prose-base, prose-lg, prose-xl, prose-2xl
+const subheadingSize = 'text-lg'; // text-lg, text-xl, text-2xl, text-3xl
+const bodyTextSize = 'text-sm'; // text-sm, text-base, text-lg, text-xl
+
+// Page metadata
+const metadata = {
+  title: mathContent.data.title,
+  ignoreTitleTemplate: false,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- KaTeX CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+
+  <section class={`px-4 py-16 sm:px-6 mx-auto lg:px-8 lg:py-20 ${containerWidth}`}>
+    <div
+      class={`${contentWidth} mx-auto prose ${proseSize} dark:prose-invert prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter 
+      prose-headings:font-bold prose-a:text-primary dark:prose-a:text-blue-400 prose-img:rounded-md prose-img:shadow-lg max-w-none ${bodyTextSize} text-justify`}
+    >
+      <!-- Render the rest of the MDX content -->
+      <Content />
+
+      <!-- Images Section -->
+      <section class="my-12">
+        <h2 class={subheadingSize}>Images</h2>
+
+        <figure class="my-8">
+          <Image
+            src={dataTest1}
+            alt="Data test 1"
+            class="w-1/2 h-auto rounded-lg shadow-lg mx-auto"
+            widths={[400, 800]}
+            sizes="(max-width: 768px) 100vw, 800px"
+          />
+          <figcaption class="text-center mt-2 text-sm text-gray-600 dark:text-gray-400">
+            Figure 1: Data test 1
+          </figcaption>
+        </figure>
+
+        <figure class="my-8">
+          <Image
+            src={dataTest2}
+            alt="Data test 2"
+            class="w-1/2 h-auto rounded-lg shadow-lg mx-auto"
+            widths={[400, 800]}
+            sizes="(max-width: 768px) 100vw, 800px"
+          />
+          <figcaption class="text-center mt-2 text-sm text-gray-600 dark:text-gray-400">
+            Figure 2: Data test 2
+          </figcaption>
+        </figure>
+
+        <figure class="my-8">
+          <Image
+            src={checking}
+            alt="Checking if 2 contestants with 5 problems solved is necessary"
+            class="w-1/2 h-auto rounded-lg shadow-lg mx-auto"
+            widths={[400, 800]}
+            sizes="(max-width: 768px) 100vw, 800px"
+          />
+          <figcaption class="text-center mt-2 text-sm text-gray-600 dark:text-gray-400">
+            Figure 3: Checking if 2 contestants with 5 problems solved is necessary
+          </figcaption>
+        </figure>
+
+        <figure class="my-8">
+          <Image
+            src={countingProblems}
+            alt="Counting the number of trios in which a problem has appeared"
+            class="w-1/2 h-auto rounded-lg shadow-lg mx-auto"
+            widths={[400, 800]}
+            sizes="(max-width: 768px) 100vw, 800px"
+          />
+          <figcaption class="text-center mt-2 text-sm text-gray-600 dark:text-gray-400">
+            Figure 4: Counting the number of trios in which a problem has appeared
+          </figcaption>
+        </figure>
+      </section>
+    </div>
+  </section>
+</Layout>

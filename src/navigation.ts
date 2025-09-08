@@ -4,11 +4,11 @@ export const headerData = {
   links: [
     {
       text: 'About me',
-      href: getPermalink('/portfolio_pages/aboutme'),
+      href: getPermalink('/aboutme'),
     },
     {
       text: 'CV',
-      href: getPermalink('/portfolio_pages/cv'),
+      href: getPermalink('/cv'),
     },
   ],
 };

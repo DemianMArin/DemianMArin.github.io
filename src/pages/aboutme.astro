@@ -1,0 +1,45 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Image from '~/components/common/Image.astro';
+
+const metadata = {
+  title: 'About me',
+  ignoreTitleTemplate: false,
+};
+---
+
+<Layout metadata={metadata}>
+  <section class="px-4 py-16 sm:px-6 mx-auto lg:px-8 lg:py-20 max-w-4xl">
+    <Image
+      src="~/assets/images/aboutme-photo.png"
+      alt="Profile Image"
+      class="w-64 h-80 object-cover rounded-md shadow-lg float-right ml-6 mb-4"
+      widths={[256]}
+      sizes="256px"
+      style="width: 16rem; height: 20rem; object-fit: cover;"
+    />
+
+    <div
+      class="ml-0 prose prose-sm lg:prose-l dark:prose-invert prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-primary dark:prose-a:text-blue-400 prose-img:rounded-md prose-img:shadow-lg text-justify"
+    >
+      <p>Hello, I'm Demian.</p>
+      <p>
+        I graduated with a bachelor's degree in robotics and digital systems, where I liked seeing software have a
+        direct impact on physical objects—whether through robotic arms, embedded systems, or FPGAs. Throughout my
+        studies, I had the privilege of collaborating with people who shared my curiosity and drive to build, learn and
+        try new things.
+      </p>
+      <p>
+        During this period, I got involved in engineering projects with robotics groups such as Vanttec, where I
+        developed both technical skills and the determination to push through failures and uncertainty in complex
+        engineering projects. I also had the opportunity to do a research internship at UIC that confirmed my desire to
+        pursue graduate studies and specialize my technical knowledge.
+      </p>
+      <p>
+        This interest in hardware-software integration ultimately led me to pursue a master's degree. I'm particularly
+        drawn to VLSI design, computer architecture, and advanced embedded systems, and I'm eager to apply my knowledge
+        while continuing to learn in an industry setting.
+      </p>
+    </div>
+  </section>
+</Layout>

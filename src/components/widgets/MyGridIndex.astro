@@ -8,7 +8,7 @@ import type { Video } from '~/types';
 interface GridItem {
   image?: ImageMetadata | Record<string, unknown>;
   video?: Video;
-  href: string;
+  href?: string;
   title?: string;
 }
 
@@ -64,8 +64,8 @@ const itemWidth = 'w-full'; // w-full, w-3/4, w-1/2, w-2/3
   {
     items && items.length > 0 && (
       <div class={`${gridColumns} gap-8 space-y-8`}>
-        {items.map(({ image, video, href, title: itemTitle }) => (
-          <a href={href} class="block group hover:scale-105 transition-transform duration-300 break-inside-avoid mb-8">
+        {items.map(({ image, video, href, title: itemTitle }) => {
+          const content = (
             <div class="overflow-hidden">
               {video ? (
                 <video
@@ -94,8 +94,19 @@ const itemWidth = 'w-full'; // w-full, w-3/4, w-1/2, w-2/3
                 </div>
               )}
             </div>
-          </a>
-        ))}
+          );
+
+          return href ? (
+            <a
+              href={href}
+              class="block group hover:scale-105 transition-transform duration-300 break-inside-avoid mb-8"
+            >
+              {content}
+            </a>
+          ) : (
+            <div class="block break-inside-avoid mb-8">{content}</div>
+          );
+        })}
       </div>
     )
   }

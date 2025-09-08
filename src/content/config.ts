@@ -65,6 +65,17 @@ const postCollection = defineCollection({
   }),
 });
 
+const gridCollection = defineCollection({
+  loader: glob({ pattern: ['*.md', '*.mdx'], base: 'src/data/grid' }),
+  schema: z.object({
+    title: z.string(),
+    author: z.string().optional(),
+    publishDate: z.date().optional(),
+    excerpt: z.string().optional(),
+  }),
+});
+
 export const collections = {
   post: postCollection,
+  grid: gridCollection,
 };

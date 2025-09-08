@@ -10,6 +10,8 @@ import partytown from '@astrojs/partytown';
 import icon from 'astro-icon';
 import compress from 'astro-compress';
 import type { AstroIntegration } from 'astro';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 
 import astrowind from './vendor/integration';
 
@@ -31,7 +33,10 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
     sitemap(),
-    mdx(),
+    mdx({
+      remarkPlugins: [remarkMath],
+      rehypePlugins: [rehypeKatex],
+    }),
     icon({
       include: {
         tabler: ['*'],
