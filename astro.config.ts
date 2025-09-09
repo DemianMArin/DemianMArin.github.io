@@ -25,7 +25,7 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 
 export default defineConfig({
   site: 'https://DemianMArin.github.io',
-  base: '/demian-portfolio',
+  base: '/',
   output: 'static',
 
   integrations: [

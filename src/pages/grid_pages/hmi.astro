@@ -1,0 +1,75 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import { getEntry, render } from 'astro:content';
+
+// Import images and video
+import diagramImage from '~/assets/images/HMI/tangnano20k_diagram.png';
+import hmiVideo from '~/assets/images/grid_portfolio/hmi.mp4';
+
+// Get the MDX content using getEntry
+const hmiContent = await getEntry('grid', 'hmi');
+if (!hmiContent) {
+  throw new Error('HMI content not found');
+}
+const { Content } = await render(hmiContent);
+
+// Layout variables - easily configurable
+const containerWidth = 'max-w-3xl';
+
+// Typography variables - easily configurable
+const proseSize = 'prose-sm'; // prose-sm, prose-base, prose-lg, prose-xl, prose-2xl
+const bodyTextSize = 'text-xs'; // text-sm, text-base, text-lg, text-xl
+
+// Page metadata
+const metadata = {
+  title: hmiContent.data.title,
+  ignoreTitleTemplate: false,
+};
+---
+
+<Layout metadata={metadata}>
+  <section class={`px-4 py-16 sm:px-6 mx-auto lg:px-8 lg:py-20 ${containerWidth}`}>
+    <!-- Main content -->
+    <div
+      class={`max-w-3xl mx-auto prose ${proseSize} dark:prose-invert prose-headings:font-bold prose-a:text-primary max-w-none ${bodyTextSize} text-justify`}
+    >
+      <!-- Render the MDX content with embedded video and diagram -->
+      <Content />
+    </div>
+
+    <!-- JavaScript to inject video and diagram after title -->
+    <script is:inline define:vars={{ hmiVideo, diagramImage }}>
+      document.addEventListener('DOMContentLoaded', function () {
+        const placeholder = document.getElementById('video-placeholder');
+        if (placeholder) {
+          // Create video element
+          const videoContainer = document.createElement('figure');
+          videoContainer.className = 'my-8';
+          videoContainer.innerHTML = `
+            <video autoplay loop muted class="w-1/2 max-w-2xl h-auto rounded-lg shadow-lg mx-auto">
+              <source src="${hmiVideo}" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <figcaption class="text-center mt-2 text-sm text-gray-600 dark:text-gray-400">
+              Real Time SLAM visualization
+            </figcaption>
+          `;
+
+          // Create diagram element
+          const diagramContainer = document.createElement('figure');
+          diagramContainer.className = 'float-right ml-6 mb-4 w-80 max-w-sm';
+          diagramContainer.innerHTML = `
+            <img src="${diagramImage.src}" alt="TangNano 20k system diagram" class="w-full h-auto rounded-lg shadow-lg" />
+            <figcaption class="text-center mt-2 text-sm text-gray-600 dark:text-gray-400">
+              System Architecture Diagram
+            </figcaption>
+          `;
+
+          // Replace placeholder with video and add diagram
+          placeholder.replaceWith(videoContainer);
+          videoContainer.after(diagramContainer);
+        }
+      });
+    </script>
+  </section>
+</Layout>

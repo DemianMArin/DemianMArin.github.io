@@ -1,0 +1,45 @@
+---
+title: 'HMI - SLAM Visualization in LCD with FPGA'
+author: 'Demian'
+publishDate: 2024-01-15T00:00:00Z
+excerpt: Human-Machine Interface implementation of SLAM visualization on LCD display using FPGA
+---
+
+import { Image } from 'astro:assets';
+import lcdImage from '~/assets/images/HMI/image_lcd_fpga.png';
+
+# HMI - SLAM in LCD with FPGA
+
+<div id="video-placeholder"></div>
+
+## Overview
+
+This project is a real-time video streaming system that displays images from a PC or Jetson device on a compact LCD screen using an FPGA. The goal was to
+create an HMI for our robot. The robot would be performing a SLAM and this HMI allowed for a real time display of the map created.
+
+### Hardware Components
+
+- **TangNano FPGA**:
+- **240×128 LCD Display**
+- **FTDI USB-to-UART Converter**: Interface bridge between PC and FPGA
+
+### Specifications
+
+- **PWM Generator**: Control Servo
+- **Display Resolution**: 240 × 128 pixels
+- **Color Depth**: 2-bit (4 colors total)
+- **Data per Frame**: 61,440 bits
+- **Communication Speed**: 115,200 bps
+- **Theoretical FPS**: ~1.9 FPS
+
+The actual bottleneck for this was the FPGA UART speed. The FTDI could handle 1M bps. But the TangNano's UART stopped working after 300k bps. By trial and error
+the bps that worked better was 115.2k bps. There was also a problem of noise that could have been solved with better error correction code and some capacitors.
+
+<div class="text-center">
+  <Image src={lcdImage} alt="Testing LCD with Image" class="w-1/3 mx-auto rounded-lg shadow-lg" />
+</div>
+
+## Repository Links
+
+- **Github**: [ImageDisplay on GitHub](https://github.com/DemianMArin/ImageDisplay)
+- **Based on**: [LCD Tang Nano II - Imágenes](https://www.electronicayciencia.com/2021/12/lcd_tang_nano_II_imagenes.html)
