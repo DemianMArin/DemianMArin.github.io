@@ -7,30 +7,48 @@ excerpt: Human-Machine Interface implementation of SLAM visualization on LCD dis
 
 import { Image } from 'astro:assets';
 import lcdImage from '~/assets/images/HMI/image_lcd_fpga.png';
+import diagramImage from '~/assets/images/HMI/tangnano20k_diagram.png';
+import hmiVideo from '~/assets/images/grid_portfolio/hmi.mp4';
 
 # HMI - SLAM in LCD with FPGA
 
-<div id="video-placeholder"></div>
+<div class="flex flex-col md:flex-row gap-6 my-8 items-start">
+  <div class="md:flex-1">
 
-## Overview
+    ## Overview
 
-This project is a real-time video streaming system that displays images from a PC or Jetson device on a compact LCD screen using an FPGA. The goal was to
-create an HMI for our robot. The robot would be performing a SLAM and this HMI allowed for a real time display of the map created.
+    This project is a real-time video streaming system that displays images from a PC or Jetson device on a compact LCD screen using an FPGA. The goal was to
+    create an HMI for our robot. The robot would be performing a SLAM and this HMI allowed for a real time display of the map created.
 
-### Hardware Components
+    ### Hardware Components
 
-- **TangNano FPGA**:
-- **240×128 LCD Display**
-- **FTDI USB-to-UART Converter**: Interface bridge between PC and FPGA
+    - **TangNano FPGA**:
+    - **240×128 LCD Display**
+    - **FTDI USB-to-UART Converter**: Interface bridge between PC and FPGA
 
-### Specifications
+    ## Specifications
 
-- **PWM Generator**: Control Servo
-- **Display Resolution**: 240 × 128 pixels
-- **Color Depth**: 2-bit (4 colors total)
-- **Data per Frame**: 61,440 bits
-- **Communication Speed**: 115,200 bps
-- **Theoretical FPS**: ~1.9 FPS
+    - **PWM Generator**: Control Servo
+    - **Display Resolution**: 240 × 128 pixels
+    - **Color Depth**: 2-bit (4 colors total)
+    - **Data per Frame**: 61,440 bits
+    - **Communication Speed**: 115,200 bps
+    - **Theoretical FPS**: ~1.9 FPS
+
+  </div>
+  <div class="md:w-1/3 space-y-4">
+    <Image 
+      src={diagramImage} 
+      alt="TangNano 20k system diagram" 
+      class="rounded-lg shadow-lg w-full h-auto" 
+    />
+    <video loop muted playsinline class="w-full rounded-lg shadow-lg">
+      <source src={hmiVideo} type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <p class="text-center text-sm text-gray-600 dark:text-gray-400">Real Time SLAM visualization</p>
+  </div>
+</div>
 
 The actual bottleneck for this was the FPGA UART speed. The FTDI could handle 1M bps. But the TangNano's UART stopped working after 300k bps. By trial and error
 the bps that worked better was 115.2k bps. There was also a problem of noise that could have been solved with better error correction code and some capacitors.

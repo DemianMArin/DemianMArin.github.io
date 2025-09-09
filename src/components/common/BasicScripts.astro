@@ -253,3 +253,29 @@ import { UI } from 'astrowind:config';
     Observer.start();
   });
 </script>
+
+<script is:inline>
+  // Video initialization for MDX and other videos
+  function initializeVideos() {
+    const videos = document.querySelectorAll('video[muted][loop]');
+
+    videos.forEach((video) => {
+      const videoElement = video;
+      videoElement.currentTime = 0;
+      videoElement.load();
+
+      const playPromise = videoElement.play();
+
+      if (playPromise !== undefined) {
+        playPromise.catch((error) => {
+          console.log('Video autoplay prevented:', error);
+        });
+      }
+    });
+  }
+
+  // Initialize videos on page load
+  document.addEventListener('DOMContentLoaded', initializeVideos);
+  document.addEventListener('astro:page-load', initializeVideos);
+  document.addEventListener('astro:after-swap', initializeVideos);
+</script>

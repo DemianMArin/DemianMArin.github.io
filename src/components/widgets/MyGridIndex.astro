@@ -68,9 +68,8 @@ const itemWidth = 'w-full'; // w-full, w-3/4, w-1/2, w-2/3
           const content = (
             <div class="overflow-hidden">
               {video ? (
-                // Fix autoplay mobile devices: Remove autoplay attribute and add class for JS targeting
                 <video
-                  class={`${itemWidth} h-auto object-cover group-hover:opacity-90 transition-opacity duration-300 portfolio-video`}
+                  class={`${itemWidth} h-auto object-cover group-hover:opacity-90 transition-opacity duration-300`}
                   muted
                   loop
                   playsinline
@@ -113,7 +112,7 @@ const itemWidth = 'w-full'; // w-full, w-3/4, w-1/2, w-2/3
   }
 </WidgetWrapper>
 
-<script>
+<!-- <script>
   // Fix autoplay mobile devices
   function initializeVideos() {
     const videos = document.querySelectorAll('.portfolio-video');
@@ -137,4 +136,4 @@ const itemWidth = 'w-full'; // w-full, w-3/4, w-1/2, w-2/3
   document.addEventListener('DOMContentLoaded', initializeVideos);
   document.addEventListener('astro:page-load', initializeVideos);
   document.addEventListener('astro:after-swap', initializeVideos);
-</script>
+</script> -->

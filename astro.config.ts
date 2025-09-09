@@ -87,11 +87,20 @@ export default defineConfig({
     rehypePlugins: [responsiveTablesRehypePlugin, lazyImagesRehypePlugin],
   },
 
+  //server: {
+  //  host: '0.0.0.0',
+  //  allowedHosts: ['e56b03988fda.ngrok-free.app'],
+  //},
+
   vite: {
     resolve: {
       alias: {
         '~': path.resolve(__dirname, './src'),
       },
     },
+    //preview: {
+    //  host: '0.0.0.0',
+    //  allowedHosts: ['e56b03988fda.ngrok-free.app'],
+    //},
   },
 });
