@@ -1,0 +1,66 @@
+---
+title: 'Control Systems - Vehicle Speed Modeling'
+author: 'Demian'
+publishDate: 2025-09-08T00:00:00Z
+excerpt: System identification model for autonomous electric vehicle using ARX methodology
+---
+
+import { Image } from 'astro:assets';
+import frontViewImage from '~/assets/images/PIDcar/frontview.png';
+import lateralImage from '~/assets/images/PIDcar/lateral.png';
+import resultsStepImage from '~/assets/images/PIDcar/results_step.png';
+import resultsPrbsImage from '~/assets/images/PIDcar/results_prbs.png';
+import pidvideo from '~/assets/images/grid_portfolio/stm_pid_car.mp4';
+
+# Control Systems - Vehicle Speed Modeling
+
+## Overview
+
+This project focused on developing a system identification model for an autonomous electric vehicle using ARX (AutoRegressive with eXogenous input)
+methodology. The main objective was to obtain a transfer function that accurately describes the vehicle's dynamic behavior
+through controlled experiments.
+
+<div class="flex flex-col md:flex-row gap-4 my-8 justify-center">
+  <div class="md:basis-1/2">
+    <Image src={frontViewImage} alt="PID Car Front View" class="rounded-lg shadow-lg w-full h-auto" />
+  </div>
+  <div class="md:basis-1/2">
+    <Image src={lateralImage} alt="PID Car Lateral View" class="rounded-lg shadow-lg w-full h-auto" />
+  </div>
+</div>
+
+## Methodology
+
+I built an electric vehicle equipped with encoders, infrared sensors for line following, and a data acquisition system using
+Arduino and ESP8266. The vehicle collected speed, time, and PWM input data while following a predefined path.
+Two main experiments were conducted: step response testing and PRBS (Pseudo-Random Binary Sequence) testing to capture the
+system's behavior under different input conditions.
+
+The collected data was processed in MATLAB to generate ARX models, with correlation coefficients calculated to validate model accuracy.
+The step response experiment achieved an R² of 0.9396, indicating excellent model fidelity, while the PRBS test
+yielded R² = 0.7113.
+
+<div class="flex flex-col md:flex-row gap-4 my-8 justify-center">
+  <div class="md:basis-1/2">
+    <Image src={resultsStepImage} alt="Step Response Results" class="rounded-lg shadow-lg w-full h-auto" />
+  </div>
+  <div class="md:basis-1/2">
+    <Image src={resultsPrbsImage} alt="PRBS Test Results" class="rounded-lg shadow-lg w-full h-auto" />
+  </div>
+</div>
+
+## Impact
+
+This project served as an excellent introduction to feedback control systems and system identification techniques.
+It demonstrated how experimental data can be used to create mathematical models that accurately represent
+real-world system behavior, providing the foundation for implementing effective PID control strategies using methods
+like Ziegler-Nichols tuning.
+
+<div class="flex justify-center my-8 ">
+  <div class="max-w-4xl w-full max-w-md h-auto">
+    <video loop muted playsinline class="w-full rounded-lg shadow-lg">
+      <source src={pidvideo} type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>

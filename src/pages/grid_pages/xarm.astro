@@ -2,17 +2,17 @@
 import { getEntry, render } from 'astro:content';
 import Layout from '~/layouts/PageLayout.astro';
 
-// Get the UUV content from the grid collection
-const uuvContent = await getEntry('grid', 'uuv');
-if (!uuvContent) {
-  throw new Error('UUV content not found');
+// Get the xarm content from the grid collection
+const xarmContent = await getEntry('grid', 'xarm');
+if (!xarmContent) {
+  throw new Error('Xarm content not found');
 }
 
-const { Content } = await render(uuvContent);
+const { Content } = await render(xarmContent);
 
 // Page metadata
 const metadata = {
-  title: uuvContent.data.title,
+  title: xarmContent.data.title,
   ignoreTitleTemplate: false,
 };
 

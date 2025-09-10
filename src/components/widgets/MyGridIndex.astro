@@ -111,29 +111,3 @@ const itemWidth = 'w-full'; // w-full, w-3/4, w-1/2, w-2/3
     )
   }
 </WidgetWrapper>
-
-<!-- <script>
-  // Fix autoplay mobile devices
-  function initializeVideos() {
-    const videos = document.querySelectorAll('.portfolio-video');
-
-    videos.forEach((video) => {
-      // Cast to HTMLVideoElement so TypeScript knows it's a video element
-      const videoElement = video as HTMLVideoElement;
-      videoElement.currentTime = 0;
-      videoElement.load();
-
-      const playPromise = videoElement.play();
-
-      if (playPromise !== undefined) {
-        playPromise.catch((error: Error) => {
-          console.log('Video autoplay prevented by browser policy:', error);
-        });
-      }
-    });
-  }
-
-  document.addEventListener('DOMContentLoaded', initializeVideos);
-  document.addEventListener('astro:page-load', initializeVideos);
-  document.addEventListener('astro:after-swap', initializeVideos);
-</script> -->

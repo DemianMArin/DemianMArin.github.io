@@ -1,0 +1,36 @@
+---
+title: 'Xarm Inverse Kinematics'
+author: 'Demian'
+publishDate: 2025-09-08T00:00:00Z
+excerpt: Exploring inverse kinematics across Processing, ROS/Gazebo, and real hardware
+---
+
+import { Image } from 'astro:assets';
+import xarmProcessingVideo from '~/assets/images/Xarm/xarm_processing_clipped.mp4';
+import xarmSimulationVideo from '~/assets/images/Xarm/xarm_simulation_clipped.mp4';
+import xarmRealVideo from '~/assets/images/grid_portfolio/xarm_following_marker.mp4';
+
+# Xarm Inverse Kinematics
+
+<div class="flex flex-col md:flex-row gap-6 my-8 items-start">
+  <div class="md:flex-1">
+    ## Overview This was a small but challenging project. My team and I explored inverse kinematics and tested it across
+    different environments: first in Processing, then in ROS/Gazebo, and finally with a real Xarm. It was interesting to
+    see how at every stage, as you approach reality, the smooth behavior you expected in theory doesn't quite match what
+    actually happens.
+  </div>
+  <div class="md:w-1/2 space-y-4">
+    <video loop muted playsinline class="w-full rounded-lg shadow-lg">
+      <source src={xarmProcessingVideo} type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <video loop muted playsinline class="w-full rounded-lg shadow-lg">
+      <source src={xarmSimulationVideo} type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <video loop muted playsinline class="w-full rounded-lg shadow-lg">
+      <source src={xarmRealVideo} type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>

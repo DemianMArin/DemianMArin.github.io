@@ -1,0 +1,49 @@
+---
+title: 'Cross the Road on FPGA'
+author: 'Demian'
+publishDate: 2025-09-08T00:00:00Z
+excerpt: My first introduction to Hardware Design with VGA graphics on DE10-Lite
+---
+
+import { Image } from 'astro:assets';
+import de10LiteImage from '~/assets/images/FPGA_Game/DE10-Lite_45_nobg.png';
+import rtlimage from '~/assets/images/FPGA_Game/rtl.png';
+import gameFpgaVideo from '~/assets/images/grid_portfolio/game_FPGA.mp4';
+
+# Cross the Road on FPGA
+
+## Overview
+
+<div class="flex flex-col md:flex-row gap-6 my-8 items-start">
+  <div class="md:flex-1">
+    This was my first introduction to Hardware Design. I got to build multiplexers, FSMs, and eventually a very small video game/simulation. What I really loved about this project was experimenting with the VGA connector of the DE10-Lite board. It gave me a 
+    glimpse into how graphics cards actually work. In this project, the graphics were pretty hardcoded.
+
+    I remember trying to draw a circle that could be scaled up and down. In the end, I calculated the sin and cos values and ended up with just a single-size
+    circle. It was such a fun experience and a great introduction to FPGAs. Quartus was incredibly complex and way too big for my Mac,
+    which wasn't even supported anyway.
+
+  </div>
+  <div class="md:w-1/3">
+    <Image 
+      src={de10LiteImage} 
+      alt="DE10-Lite" 
+      class="rounded-lg shadow-lg w-full h-auto" 
+    />
+  </div>
+</div>
+
+<div class="flex flex-col md:flex-row gap-4 my-8 justify-center">
+  <div class="md:basis-1/6">
+    <video loop muted playsinline class="w-full rounded-lg shadow-lg">
+      <source src={gameFpgaVideo} type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div class="md:basis-5/6">
+    <Image src={rtlimage} alt="RTL Diagram" class="rounded-lg shadow-lg w-full h-auto" />
+  </div>
+</div>
+
+- **FPGA Code**: [Check the Repository](https://github.com/DemianMArin/VGA_nice)
+- **Based on**: [NANDLAND](https://nandland.com/project-9-vga-introduction-driving-test-patterns-to-vga-monitor/)

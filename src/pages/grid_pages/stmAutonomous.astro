@@ -2,17 +2,17 @@
 import { getEntry, render } from 'astro:content';
 import Layout from '~/layouts/PageLayout.astro';
 
-// Get the UUV content from the grid collection
-const uuvContent = await getEntry('grid', 'uuv');
-if (!uuvContent) {
-  throw new Error('UUV content not found');
+// Get the stmAutonomous content from the grid collection
+const stmAutonomousContent = await getEntry('grid', 'stm_autonomous');
+if (!stmAutonomousContent) {
+  throw new Error('STM Autonomous content not found');
 }
 
-const { Content } = await render(uuvContent);
+const { Content } = await render(stmAutonomousContent);
 
 // Page metadata
 const metadata = {
-  title: uuvContent.data.title,
+  title: stmAutonomousContent.data.title,
   ignoreTitleTemplate: false,
 };
 
@@ -22,7 +22,7 @@ const contentWidth = 'max-w-4xl';
 
 // Typography variables
 const proseSize = 'prose-base';
-const bodyTextSize = 'text-sm';
+const bodyTextSize = 'text-xs';
 ---
 
 <Layout metadata={metadata}>

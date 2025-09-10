@@ -2,17 +2,17 @@
 import { getEntry, render } from 'astro:content';
 import Layout from '~/layouts/PageLayout.astro';
 
-// Get the UUV content from the grid collection
-const uuvContent = await getEntry('grid', 'uuv');
-if (!uuvContent) {
-  throw new Error('UUV content not found');
+// Get the game_fpga content from the grid collection
+const gameFpgaContent = await getEntry('grid', 'game_fpga');
+if (!gameFpgaContent) {
+  throw new Error('Game FPGA content not found');
 }
 
-const { Content } = await render(uuvContent);
+const { Content } = await render(gameFpgaContent);
 
 // Page metadata
 const metadata = {
-  title: uuvContent.data.title,
+  title: gameFpgaContent.data.title,
   ignoreTitleTemplate: false,
 };
 

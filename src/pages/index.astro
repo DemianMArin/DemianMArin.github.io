@@ -5,7 +5,7 @@ import MyGridIndex from '~/components/widgets/MyGridIndex.astro';
 
 import uuvPoolVideo from '~/assets/images/grid_portfolio/uuv_pool.mp4';
 import xarmVideo from '~/assets/images/grid_portfolio/xarm_following_marker.mp4';
-import stmAutonomous from '~/assets/images/grid_portfolio/stm_autonomous_vehicle.mp4';
+import stmAutonomousVideo from '~/assets/images/grid_portfolio/stm_autonomous_vehicle.mp4';
 import fpgaGame from '~/assets/images/grid_portfolio/game_FPGA.mp4';
 import passiveFilter from '~/assets/images/grid_portfolio/passive_filter.mp4';
 import uuvAboveWaterVideo from '~/assets/images/grid_portfolio/above_water_testing.mp4';
@@ -33,16 +33,19 @@ const portfolioItems = [
   },
   {
     video: { src: fpgaGame },
+    href: getPermalink('/grid_pages/game_fpga'),
     title: 'FPGA Game',
   },
   {
     //image: { src: '~/assets/images/grid_portfolio/stm_autonomous_vehicle.png', alt: 'STM autonomous vehicle project' },
-    video: { src: stmAutonomous },
+    video: { src: stmAutonomousVideo },
+    href: getPermalink('/grid_pages/stmAutonomous'),
     title: 'STM Autonomous Vehicle',
   },
   {
     //image: { src: '~/assets/images/grid_portfolio/stm_line_follower.png', alt: 'STM line follower project' },
     video: { src: stmPIDVideo },
+    href: getPermalink('/grid_pages/pid_car'),
     title: 'STM PID Line Follower',
   },
   {
@@ -52,6 +55,7 @@ const portfolioItems = [
   },
   {
     video: { src: teachingAIVideo },
+    href: getPermalink('/grid_pages/teachingai'),
     title: 'Teacher AI',
   },
   {
@@ -73,6 +77,7 @@ const portfolioItems = [
   {
     //image: { src: '~/assets/images/grid_portfolio/xarm_setup.png', alt: 'xArm robotic arm setup project' },
     video: { src: xarmVideo },
+    href: getPermalink('/grid_pages/xarm'),
     title: 'xArm Setup',
   },
 ];
